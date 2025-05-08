@@ -48,3 +48,22 @@ In this notebook, I implemented a **basic Convolutional Neural Network (CNN)** f
 ### 🧠 Key Deep Learning Concepts
 - **Data Augmentation**: generate more training data images by applying transformations to existing samples.
 - **Droput Vs Data Augmentation**: In computer vision, the most used technique to mitigate overfitting is by the Data Augmentation the training set. That because Dropout after a Conv2D Layer may create disturbance. However, Droput can be still used in CNN models, but after the flatten layer.
+---
+## 📘 Chapter 3 – Trasfer Learning (VGG16 Model)
+When working with a small dataset, using pretrained models is an extremely effective strategy.  
+In this notebook, we’ll explore how to leverage pretrained convolutional networks (specifically **VGG16**) to classify images for the same previous task (cats vs dogs), using two main approaches: **Feature Extraction (Transfer Learning)** and **Fine-Tuning**.  
+You’ll learn how to freeze model weights, preprocess image data, and build a custom classifier on top of learned features.
+
+### 🔍 What This Covers
+- Import and use pre-trained model
+- (1) **Feature Extraction** with a pre-trained model
+- (1) **Training a custom NN classifier** from scratch with **pre-trained model's prediction**.
+- (2) **Freeze** pre-trained model weights.
+- (2) **Remove top layers** of pre-trained model and **Add our custom layers.**
+- (2) **Data Augmentation** on dataset training.
+- (1-2) With these techniques the test accuracy **will reach 97% and 98%.**
+### 🧠 Key Deep Learning Concepts
+- **Pretrained Models**: When working with small datasets, it's often more effective to use a pretrained model rather than training one from scratch.
+- **Feature Extraction (Transfer Learning)**: One common approach is to use **feature extraction**, (1) involves using the pretrained model to make predictions on the training data, and then using these predictions as the new training set for a custom model. (2) involves freezing the weights of a pretrained model and using it as the foundation for a custom model.
+- **Data Augmentation in Transfer Learning**: To apply data augmentation in this context, you must use the second approach—freezing the pretrained model and attaching a new classifier—so that the augmented images are processed end-to-end.
+---
