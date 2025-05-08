@@ -82,7 +82,7 @@ In this notebook, I will explore Fine-Tuning Technique on VGG16 Model. Fine-tuni
 - **Freezing and Unfreezing Layers**: When fine-tuning a model, you start by freezing the initial layers of the pretrained network and then unfreeze the top layers to train them. Typically, you unfreeze only the final few layers because they capture more task-specific features, while the earlier layers capture more generic features like edges or textures.
 - **Overfitting Considerations**: The more layers you unfreeze, the more parameters need to be trained, which increases the risk of overfitting.
 ---
-## 📘 Chapter 5 – Image Segmentation (VGG16 Model)
+## 📘 Chapter 5 – Image Segmentation
 In this notebook, I will explote **Image Segmentation task in Computer vision**. Specifically, I will focus on **semantic segmentation task** considering the **Oxford-IIIT Pets dataset**, which contains 7,390 images of dogs and cats, along with segmentation masks.
 
 ### 🔍 What This Covers
