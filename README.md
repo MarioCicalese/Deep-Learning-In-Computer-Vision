@@ -71,13 +71,45 @@ You’ll learn how to freeze model weights, preprocess image data, and build a c
 In this notebook, I will explore Fine-Tuning Technique on VGG16 Model. Fine-tuning is another popular technique that involves utilizing a pretrained model, and it complements feature extraction. The model will be used to classify images for the same previous task (cats vs dogs).
 
 ### 🔍 What This Covers
-- Add our custom model to the top of pre-trained model
-- Freeze pre-trained model's weights
-- Train the custom model.
-- Unfreeze some pre-trained model's weights.
-- Train both unfreeze layers and part we added.
+- **Add our custom model** to the top of pre-trained model
+- **Freeze pre-trained model's weights**
+- **Train the custom model**.
+- **Unfreeze** some pre-trained model's weights.
+- **Train both** unfreeze layers and part we added.
   
 ### 🧠 Key Deep Learning Concepts
 - **Fine-Tuning**: is a method where we "unfreeze" the top layers of a pretrained convolutional base and train them along with the new classifier added to the model.
 - **Freezing and Unfreezing Layers**: When fine-tuning a model, you start by freezing the initial layers of the pretrained network and then unfreeze the top layers to train them. Typically, you unfreeze only the final few layers because they capture more task-specific features, while the earlier layers capture more generic features like edges or textures.
 - **Overfitting Considerations**: The more layers you unfreeze, the more parameters need to be trained, which increases the risk of overfitting.
+---
+## 📘 Chapter 5 – Image Segmentation (VGG16 Model)
+In this notebook, I will explote **Image Segmentation task in Computer vision**. Specifically, I will focus on **semantic segmentation task** considering the **Oxford-IIIT Pets dataset**, which contains 7,390 images of dogs and cats, along with segmentation masks.
+
+### 🔍 What This Covers
+- Loading and preprocessing images and segmentation masks in 2 NumPy arrays
+- Building a CNN with the following architecture:
+  - Stacked **Conv2D** + **Conv2D Transpose** layers
+  - Last **Conv2D Layer with 3 Filters** (num_classes) and **softmax function activation**.
+- Compile the model with **sparse_categorical_crossentropy** and **sparse_categorical_accuracy**
+
+### 🧠 Key Deep Learning Concepts
+- **Semantic Segmentation**: A task in computer vision where each pixel in an image is classified into a category.
+- **Conv2D and Conv2DTranspose Layers**: These are convolutional layers used in the model. Conv2D is used for downsampling the input, while Conv2DTranspose is used for upsampling and reconstructing the image to its original size.
+- **Sparse Categorical Accuracy**: Unlike standard accuracy, sparse categorical accuracy handles integer class labels without requiring one-hot encoding.
+---
+## 📘 Chapter 6 – Modern ConvNet, Small Xception Implementation
+In this notebook I will explore modern Convnet Architecture, in particular the layers: Residual Connections, Batch Normalization, Separable Convolutions and GlobalAveragePooling2D layer.
+Afterwards, by using these 4 layers, I defined and trained a ConvNet Architecture from scratch that looks like a smaller Xception model. This model is used for the Dog Vs. Cat Binary Classification Task to compare the results with the previous models.
+
+### 🔍 What This Covers
+- **Residual Connections** Layer.
+- **Batch Normalization** Layer.
+- **Separable Convolutions** Layer.
+- **GlobalAveragePooling2D Layer**.
+- Combine these 4 layers to create a **smaller version of Xception  model**.
+- This model reached **89% of test accuracy**. While, the simple CNN of Chapter 2 **reached 81%.**
+### 🧠 Key Deep Learning Concepts
+- **Residual Connections:** These connections add the input of a layer directly to its output, allowing the model to preserve the gradient information.
+- **Batch Normalization**: This process normalizes activations within a layer by adjusting and scaling them.
+- **Separable Convolutions**: This convolution technique decomposes a traditional convolution into two steps: a depthwise convolution and a pointwise convolution, significantly reducing the computational burden and the number of learnable parameters.
+- **GlobalAveragePooling2D Layer**: In modern models, this layer replaces the traditional Flatten Layer. The reason for this is that GlobalAveragePooling2D computes the average of each feature map, reducing the output to a single value per feature, which eliminates the need for a large number of parameters that a Flatten Layer would require.
