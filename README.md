@@ -51,7 +51,7 @@ In this notebook, I implemented a **basic Convolutional Neural Network (CNN)** f
 ---
 ## 📘 Chapter 3 – Trasfer Learning (VGG16 Model)
 When working with a small dataset, using pretrained models is an extremely effective strategy.  
-In this notebook, we’ll explore how to leverage pretrained convolutional networks (specifically **VGG16**) to classify images for the same previous task (cats vs dogs), using two main approaches: **Feature Extraction (Transfer Learning)** and **Fine-Tuning**.  
+In this notebook, I will explore how to leverage pretrained convolutional networks (specifically **VGG16**) to classify images for the same previous task (cats vs dogs), using two main approaches: **Feature Extraction (Transfer Learning)** and **Fine-Tuning**.  
 You’ll learn how to freeze model weights, preprocess image data, and build a custom classifier on top of learned features.
 
 ### 🔍 What This Covers
@@ -67,3 +67,17 @@ You’ll learn how to freeze model weights, preprocess image data, and build a c
 - **Feature Extraction (Transfer Learning)**: One common approach is to use **feature extraction**, (1) involves using the pretrained model to make predictions on the training data, and then using these predictions as the new training set for a custom model. (2) involves freezing the weights of a pretrained model and using it as the foundation for a custom model.
 - **Data Augmentation in Transfer Learning**: To apply data augmentation in this context, you must use the second approach—freezing the pretrained model and attaching a new classifier—so that the augmented images are processed end-to-end.
 ---
+## 📘 Chapter 4 – Fine-Tuning (VGG16 Model)
+In this notebook, I will explore Fine-Tuning Technique on VGG16 Model. Fine-tuning is another popular technique that involves utilizing a pretrained model, and it complements feature extraction. The model will be used to classify images for the same previous task (cats vs dogs).
+
+### 🔍 What This Covers
+- Add our custom model to the top of pre-trained model
+- Freeze pre-trained model's weights
+- Train the custom model.
+- Unfreeze some pre-trained model's weights.
+- Train both unfreeze layers and part we added.
+  
+### 🧠 Key Deep Learning Concepts
+- **Fine-Tuning**: is a method where we "unfreeze" the top layers of a pretrained convolutional base and train them along with the new classifier added to the model.
+- **Freezing and Unfreezing Layers**: When fine-tuning a model, you start by freezing the initial layers of the pretrained network and then unfreeze the top layers to train them. Typically, you unfreeze only the final few layers because they capture more task-specific features, while the earlier layers capture more generic features like edges or textures.
+- **Overfitting Considerations**: The more layers you unfreeze, the more parameters need to be trained, which increases the risk of overfitting.
